@@ -3,7 +3,7 @@
 #' between rangelands andmanaged pastures.
 #' @param cells "magpiecell" for 59199 cells or "lpjcell" for 67420 cells
 #' @return Regional biomass demand
-#' @author Marcos Alves
+#' @author Marcos Alves, Bin Lin
 #' @seealso \code{\link[madrat]{calcOutput}}, \code{\link[mrcommons]{calcFAOmassbalance}},
 #' \code{\link[madrat]{readSource}}
 #' @examples
@@ -61,7 +61,8 @@ calcGrasslandBiomass <- function(cells = "lpjcell") {
   potBioMassShare[is.nan(potBioMassShare)]       <- 0
   potBioMassShare[is.infinite(potBioMassShare)]  <- 1
 
-  livestock <- setNames(readSource("GLW3", subtype = "Aw"),
+  # livestock <- setNames(readSource("GLW3", subtype = "Aw"), "liv_numb")  # old subtype format
+  livestock <- setNames(readSource("GLW3", subtype = "Aw_Ct_2010"),
                         "liv_numb")
   if (cells == "magpiecell") {
     livestock <- toolCoord2Isocell(livestock)
