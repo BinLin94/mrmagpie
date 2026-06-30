@@ -62,7 +62,7 @@ calcGrasslandBiomass <- function(cells = "lpjcell") {
   potBioMassShare[is.infinite(potBioMassShare)]  <- 1
 
   # livestock <- setNames(readSource("GLW3", subtype = "Aw"), "liv_numb")  # old subtype format
-  livestock <- setNames(readSource("GLW3", subtype = "Aw_Ct_2010"),
+  livestock <- setNames(readSource("GLW3all", subtype = "Aw_Ct_2010"),
                         "liv_numb")
   if (cells == "magpiecell") {
     livestock <- toolCoord2Isocell(livestock)
