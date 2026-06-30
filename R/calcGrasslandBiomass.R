@@ -77,6 +77,7 @@ calcGrasslandBiomass <- function(cells = "lpjcell") {
   # of grass biomass production assigned to each system.
 
   livstSplit <- livestock * potBioMassShare
+  getYears(livstSplit) <- getYears(potBioMassShare)
   livstSplit <- collapseNames(livstSplit)
   if (cells == "lpjcell") {
     livstSplitCtry <- dimSums(livstSplit, dim = c("x", "y"))
